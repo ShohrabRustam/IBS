@@ -31,3 +31,7 @@ Route::get('BikeInsurance', function () {
 Route::get('CarInsurance', function () {
     return view('Nav.InsuranceType.car');
 });
+
+Route::get('login', function () {
+    return view('login');
+});
