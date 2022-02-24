@@ -20,7 +20,8 @@ class UserController extends Controller
         if(!$user || !Hash::check($req->password,$user->password) ){
             return back()->with("fail" ,"Email or Password is not Match");
         }
-        else{
+        else
+        {
             return redirect('about');
         }
         // dd($a);
@@ -37,8 +38,21 @@ class UserController extends Controller
             'confirm_password' => 'required_with:password|same:password|min:6'
         ]);
 
+        $user=new users();
 
-        return "Hello";
+
+        $user->name=$req->name;
+        $user->email=$req->email;
+        $user->password=Hash::make($req->password);
+        $user->save();
+
+
+
+
+
+
+
+        return redirect('login');
         // $user= users::where(['email'=>$req->email])->first();
         // if(!$user || !check($req->password,$user->confirm_password) ){
         //     return back()->with("fail" ,"Password is not match");

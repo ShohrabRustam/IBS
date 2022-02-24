@@ -1,6 +1,6 @@
 @extends("main")
 @section('title')
-Login
+Registration
 @endsection
 @section('section')
 @php
@@ -50,7 +50,7 @@ Login
             <input name="confirm_password" type="password" placeholder="Confirm Password" >
             <span class="text-danger">@error('confirm_password') {{ $message }}    @enderror</span>
           </div>
-
+          <br>
 
         <div class="row button">
           <input type="submit" value="Signup">

@@ -3,9 +3,6 @@
 Login
 @endsection
 @section('section')
-@php
-    $data = '';
-@endphp
 {{-- @if($a==0)
     alert("Email or Password is wrong");
 @endif --}}
@@ -14,7 +11,6 @@ Login
 @php
     echo $data;
 @endphp --}}
-{{ $data }}
 
 <div class="container" style="max-width: 500px;min-width:300px; min-height:300px;">
     <div class="wrapper">
@@ -24,7 +20,11 @@ Login
         @if(Session::has('fail'))
 
         <div class="alert alert-danger">{{  Session::get('fail')}}</div>
+        @elseif(Session::has('sucess')){
+        <div class="alert alert-danger">{{  Session::get('fail')}}</div>
+        }
         @endif
+
 
         <div class="row">
           <i class="fas fa-user"></i>
@@ -44,7 +44,7 @@ Login
           <input type="submit" value="Login">
         </div>
 
-        <div class="signup-link">Not a member? <a href="#">Signup now</a></div>
+        <div class="signup-link">Not a member? <a href="registration">Signup now</a></div>
       </form>
     </div>
   </div>
