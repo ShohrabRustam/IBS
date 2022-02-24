@@ -51,6 +51,9 @@ Registration
             <span class="text-danger">@error('confirm_password') {{ $message }}    @enderror</span>
           </div>
           <br>
+          <div class="form-group">
+            <label class="checkbox-inline"><input type="checkbox" required="required"> I accept the <a href="#">Terms &amp; Conditions</a></label>
+        </div>
 
         <div class="row button">
           <input type="submit" value="Signup">

@@ -272,8 +272,10 @@
 
 		<ul class="nav navbar-nav navbar-right">
 			<li>
-				<a data-toggle="dropdown" class="dropdown-toggle" href="#">Login</a>
-				<ul class="dropdown-menu form-wrapper">
+                <a  class="" href="login">Login</a>
+
+				{{-- <a data-toggle="dropdown" class="dropdown-toggle" href="login">Login</a> --}}
+				{{-- <ul class="dropdown-menu form-wrapper">
 					<li>
 						<form action="/examples/actions/confirmation.php" method="post">
 							<p class="hint-text">Sign in with your social media account</p>
@@ -291,27 +293,47 @@
 						</form>
 					</li>
 				</ul>
-			</li>
+			</li> --}}
 			<li>
-				<a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1">Sign up</a>
-				<ul class="dropdown-menu form-wrapper">
+                <a href="registration" class="btn btn-primary get-started-btn mt-1 mb-1">Sign up</a>
+
+				{{-- <a href="registration" data-toggle="dropdown" class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1">Sign up</a> --}}
+				{{-- <ul class="dropdown-menu form-wrapper">
 					<li>
-						<form action="/examples/actions/confirmation.php" method="post">
+						<form action="registration" method="post">
+                            @csrf
+
+                            @if(Session::has('fail'))
+                            <div class="alert alert-danger">{{  Session::get('fail')}}</div>
+                            @endif
+
 							<p class="hint-text">Fill in this form to create your account!</p>
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Username" required="required">
+								<input type="text" class="form-control" placeholder="name" required="required">
+                                <span class="text-danger">@error('name') {{ $message }} @enderror</span>
+
 							</div>
+                            <div class="form-group">
+								<input type="text" class="form-control" placeholder="email" required="required">
+                                <span class="text-danger">@error('email') {{ $message }} @enderror</span>
+
+							</div>
+
 							<div class="form-group">
 								<input type="password" class="form-control" placeholder="Password" required="required">
+                                <span class="text-danger">@error('password') {{ $message }} @enderror</span>
+
 							</div>
 							<div class="form-group">
-								<input type="password" class="form-control" placeholder="Confirm Password" required="required">
+								<input type="confirm_password" class="form-control" placeholder="Confirm Password" required="required">
+                                <span class="text-danger">@error('confirm_password') {{ $message }} @enderror</span>
+
 							</div>
 							<div class="form-group">
 								<label class="checkbox-inline"><input type="checkbox" required="required"> I accept the <a href="#">Terms &amp; Conditions</a></label>
 							</div>
 							<input type="submit" class="btn btn-primary btn-block" value="Sign up">
-						</form>
+						</form> --}}
 					</li>
 				</ul>
 			</li>
