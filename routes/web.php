@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,3 +35,5 @@ Route::get('CarInsurance', function () {
 Route::get('login', function () {
     return view('login');
 });
+
+Route::post('login',[UserController::class,'login']);
