@@ -35,5 +35,11 @@ Route::get('CarInsurance', function () {
 Route::get('login', function () {
     return view('login');
 });
-
 Route::post('login',[UserController::class,'login']);
+
+Route::get('registration', function () {
+    return view('registration');
+});
+
+Route::post('registration',[UserController::class,'registration']);
+

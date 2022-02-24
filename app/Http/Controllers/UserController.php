@@ -28,4 +28,28 @@ class UserController extends Controller
 
 
     }
+
+    public function registration(Request $req){
+        $req->validate([
+            'name' => 'required|min:3',
+            'email'=>'required|email|unique:users',
+            'password' => 'required|min:6|max:16',
+            'confirm_password' => 'required_with:password|same:password|min:6'
+        ]);
+
+
+        return "Hello";
+        // $user= users::where(['email'=>$req->email])->first();
+        // if(!$user || !check($req->password,$user->confirm_password) ){
+        //     return back()->with("fail" ,"Password is not match");
+        // }
+        // else{
+        //     return redirect('about');
+        // }
+        // dd($a);
+        // return view('login')->with('loginError',$a);
+
+
+
+    }
 }
