@@ -16,6 +16,7 @@ use App\Http\Controllers\UserController;
 Route::get('/', function () {
     return view('Nav.home');
 });
+
 Route::get('about', function () {
     return view('Nav.about');
 });
