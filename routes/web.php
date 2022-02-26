@@ -44,3 +44,5 @@ Route::get('registration', function () {
 
 Route::post('registration',[UserController::class,'registration']);
 
+
+
