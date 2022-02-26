@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\DashboardController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,6 +45,8 @@ Route::get('registration', function () {
 });
 
 Route::post('registration',[UserController::class,'registration']);
+
+Route::post('dashboard',[DashboardController::class,'index']);
 
 
 
