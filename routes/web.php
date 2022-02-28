@@ -46,7 +46,7 @@ Route::get('registration', function () {
 
 Route::post('registration',[UserController::class,'registration']);
 
-Route::post('dashboard',[DashboardController::class,'index']);
+Route::get('dashboard',[DashboardController::class,'index']);
 
 
 
