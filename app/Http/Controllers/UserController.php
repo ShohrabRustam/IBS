@@ -23,7 +23,7 @@ class UserController extends Controller
         else
         {
             $req->session()->put('user',$user);
-            return redirect('about');
+            return redirect('/');
         }
         // dd($a);
         // return view('login')->with('loginError',$a);
@@ -32,16 +32,15 @@ class UserController extends Controller
     }
 
     public function registration(Request $req){
+
         $req->validate([
-            'name' => 'required|min:3',
-            'email'=>'required|email|unique:users',
-            'password' => 'required|min:6|max:16',
-            'confirm_password' => 'required_with:password|same:password|min:6'
+            "name" => "required|min:3",
+            "email"=>"required|email|unique:users",
+            "password" => "required|min:6|max:16",
+            "confirm_password" => "required_with:password|same:password|min:6"
         ]);
 
         $user=new users();
-
-
         $user->name=$req->name;
         $user->email=$req->email;
         $user->password=Hash::make($req->password);

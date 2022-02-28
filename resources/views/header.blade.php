@@ -231,7 +231,12 @@
         display: block;
     }
 }
+ul li:hover{
+    background-color: #e99bbb;
+  color: white;
+  font-weight: bold;
 
+}
 </style>
 
 <script>
@@ -268,6 +273,19 @@
                 </ul>
             </li>
             <li><a href="contact">Contact</a></li>
+            @if(Session::has('user'))
+
+            <li class="dropdown">
+                <a class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Your Policies </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li><a class="dropdown-item" href="#"></a>Your Health Policies<li>
+                <li><a class="dropdown-item" href="#"></a>Your Motor Policies</li>
+                <li> <a class="dropdown-item" href="#"></a> Claim</li>
+                </ul>
+            </li>
+            @endif
+
 		</ul>
 
 		<ul class="nav navbar-nav navbar-right">
@@ -281,19 +299,22 @@
 
                 <a class="btn btn-info dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true">
                     {{Session::get('user')['name']}}
-                  </a>
+                </a>
 
                   <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton">
                     <li> <a class="dropdown-item" href="/logout">Logout</a></li>
 
                   </ul>
 
+
 					</li>
 
                     @endif
 				</ul>
 			</li>
+
 		</ul>
+
 	</div>
 </nav>
 </body>
