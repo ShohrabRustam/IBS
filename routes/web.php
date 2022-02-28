@@ -43,10 +43,9 @@ Route::post('login',[UserController::class,'login']);
 Route::get('registration', function () {
     return view('registration');
 });
-
 Route::post('registration',[UserController::class,'registration']);
 
-Route::get('dashboard',[DashboardController::class,'index']);
-
-
-
+Route::get('logout', function(){
+    Session::forget('user');
+    return redirect('login');
+});

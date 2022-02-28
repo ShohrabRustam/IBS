@@ -272,11 +272,11 @@
 
 		<ul class="nav navbar-nav navbar-right">
             <li>
-                @if(!Session::has('user')){
+                @if(!Session::has('user'))
                 <a  class="" href="login">Login</a>
     			<li>
                 <a href="registration" class="btn btn-primary get-started-btn mt-1 mb-1">Sign up</a>
-                }
+
                 @else
 
                 <a class="btn btn-info dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true">
@@ -285,8 +285,7 @@
 
                   <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton">
                     <li> <a class="dropdown-item" href="/logout">Logout</a></li>
-                    {{-- <li>  <a class="dropdown-item" href="#">Another action</a></li>
-                    <li> <a class="dropdown-item" href="#">Something else here</a></li> --}}
+
                   </ul>
 
 					</li>
