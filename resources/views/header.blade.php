@@ -271,70 +271,27 @@
 		</ul>
 
 		<ul class="nav navbar-nav navbar-right">
-			<li>
+            <li>
+                @if(!Session::has('user')){
                 <a  class="" href="login">Login</a>
-
-				{{-- <a data-toggle="dropdown" class="dropdown-toggle" href="login">Login</a> --}}
-				{{-- <ul class="dropdown-menu form-wrapper">
-					<li>
-						<form action="/examples/actions/confirmation.php" method="post">
-							<p class="hint-text">Sign in with your social media account</p>
-
-							<div class="form-group">
-							<input type="text" class="form-control" placeholder="Username" required="required">
-							</div>
-							<div class="form-group">
-								<input type="password" class="form-control" placeholder="Password" required="required">
-							</div>
-							<input type="submit" class="btn btn-primary btn-block" value="Login">
-							<div class="form-footer">
-								<a href="#">Forgot Your password?</a>
-							</div>
-						</form>
-					</li>
-				</ul>
-			</li> --}}
-			<li>
+    			<li>
                 <a href="registration" class="btn btn-primary get-started-btn mt-1 mb-1">Sign up</a>
+                }
+                @else
 
-				{{-- <a href="registration" data-toggle="dropdown" class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1">Sign up</a> --}}
-				{{-- <ul class="dropdown-menu form-wrapper">
-					<li>
-						<form action="registration" method="post">
-                            @csrf
+                <a class="btn btn-info dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true">
+                    {{Session::get('user')['name']}}
+                  </a>
 
-                            @if(Session::has('fail'))
-                            <div class="alert alert-danger">{{  Session::get('fail')}}</div>
-                            @endif
+                  <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton">
+                    <li> <a class="dropdown-item" href="/logout">Logout</a></li>
+                    {{-- <li>  <a class="dropdown-item" href="#">Another action</a></li>
+                    <li> <a class="dropdown-item" href="#">Something else here</a></li> --}}
+                  </ul>
 
-							<p class="hint-text">Fill in this form to create your account!</p>
-							<div class="form-group">
-								<input type="text" class="form-control" placeholder="name" required="required">
-                                <span class="text-danger">@error('name') {{ $message }} @enderror</span>
-
-							</div>
-                            <div class="form-group">
-								<input type="text" class="form-control" placeholder="email" required="required">
-                                <span class="text-danger">@error('email') {{ $message }} @enderror</span>
-
-							</div>
-
-							<div class="form-group">
-								<input type="password" class="form-control" placeholder="Password" required="required">
-                                <span class="text-danger">@error('password') {{ $message }} @enderror</span>
-
-							</div>
-							<div class="form-group">
-								<input type="confirm_password" class="form-control" placeholder="Confirm Password" required="required">
-                                <span class="text-danger">@error('confirm_password') {{ $message }} @enderror</span>
-
-							</div>
-							<div class="form-group">
-								<label class="checkbox-inline"><input type="checkbox" required="required"> I accept the <a href="#">Terms &amp; Conditions</a></label>
-							</div>
-							<input type="submit" class="btn btn-primary btn-block" value="Sign up">
-						</form> --}}
 					</li>
+
+                    @endif
 				</ul>
 			</li>
 		</ul>
